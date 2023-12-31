@@ -1,4 +1,9 @@
 console.log('client.js is sourced!');
+
+//Global value for inputs
+const numOne = document.getElementById('numOne');
+const numTwo = document.getElementById('numTwo');
+
 //Store selected operator value
 let operator = null;
 
@@ -12,7 +17,7 @@ function operatorValue(event) {
 //Get route to render most recent calculation and all calc history [x]
 //Post route to send num values and operator [x]
 //Equal button when clicked sends post route [x]
-//C button clears inputs []
+//C button clears inputs [x]
 
 //Get route
 function getCalculations() {
@@ -30,9 +35,7 @@ function getCalculations() {
     mostRecentHistory.innerHTML = '';
     allHistory.innerHTML = '';
 
-    for ( item of calculations ) {
-    //  console.log('Item loop', item);
-    // console.log('calculations loop', calculations);
+    for ( item of calculations )
 
       mostRecentHistory.innerHTML = `
         <p>${item.result}</p>
@@ -51,9 +54,7 @@ function getCalculations() {
 //POST route
 function handleCalc(event) {
   event.preventDefault();
-  const numOne = document.getElementById('numOne');
-  const numTwo = document.getElementById('numTwo');
-
+  
   const newCalc = {
     numOne: numOne.value,
     numTwo: numTwo.value,
@@ -72,10 +73,12 @@ function handleCalc(event) {
   .catch((error) => {
     console.log('ERROR', error);
   })
-
-  //console.log('Number 1:', numOne.value)
-  //console.log('Number 2:', numTwo.value)
 };
 
+//clear input values
+function inputsClear() {
+  numOne.value = '';
+  numTwo.value = '';
+};
 
 getCalculations();
