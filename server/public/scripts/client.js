@@ -1,8 +1,10 @@
 console.log('client.js is sourced!');
 
-//Global value for inputs
+//Global variables for inputs + calculation history
 const numOne = document.getElementById('numOne');
 const numTwo = document.getElementById('numTwo');
+const mostRecentHistory = document.querySelector('#mostRecent');
+const allHistory = document.querySelector('#history');
 
 //Store selected operator value
 let operator = null;
@@ -28,17 +30,15 @@ function getCalculations() {
     url: '/calculations',
   })
   .then((response) => {
-    const mostRecentHistory = document.querySelector('#mostRecent');
-    const allHistory = document.querySelector('#history');
     const calculations = response.data;
     console.log(calculations);
     mostRecentHistory.innerHTML = '';
     allHistory.innerHTML = '';
 
-    for ( item of calculations )
+    for ( item of calculations ) {
 
-      mostRecentHistory.innerHTML = `
-        <p>${item.result}</p>
+      mostRecentHistory.innerHTML = ` 
+      <p>${item.result}</p> 
       `
 
       allHistory.innerHTML += `
