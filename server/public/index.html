@@ -2,7 +2,8 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Server-Side Calculator</title>    
+    <title>Server-Side Calculator</title>   
+    <link rel="stylesheet" href="./styles/style.css">
     <script defer src="scripts/axios.js"></script>
     <script defer src="scripts/client.js" charset="utf-8"></script>
   </head>
@@ -20,18 +21,16 @@
       <button onclick="inputsClear()">C</button>
     </form>
 
-    <section data-testid="recentResult">
+    <section data-testid="recentResult" class="center-results">
       <!-- The most recent calculation result goes here. -->
-      <div id="mostRecent">
-
-      </div>
+      <h2>Latest Result</h2>
+      <div id="mostRecent"></div>
     </section>
 
-    <section data-testid="resultHistory">
+    <section data-testid="resultHistory" class="center-results">
       <!-- The list of calculation results goes here. -->
-      <div id="history">
-
-      </div>
+      <h2>Calculations History</h2>
+      <div id="history"></div>
     </section>
   </body>
 </html>
