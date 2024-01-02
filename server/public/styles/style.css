@@ -22,3 +22,8 @@ h2{
   border: 1px solid black;
   border-radius: 10px;
 }
+
+ul{
+  list-style-position: inside;
+  text-align: left;
+}

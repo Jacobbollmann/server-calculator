@@ -42,7 +42,7 @@ function getCalculations() {
       `
 
       allHistory.innerHTML += `
-    <p>${item.numOne} ${item.operator} ${item.numTwo} = ${item.result}</p>
+    <li>${item.numOne} ${item.operator} ${item.numTwo} = ${item.result}</li>
       `
     }
   })
